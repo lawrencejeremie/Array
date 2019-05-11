@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 	double sales[10];
-	int index;
+	int index, maxIndex;
 	double largestSale, sum, average;
 
 	for (index = 0; index < 10; index++)
@@ -23,7 +23,15 @@ int main()
 	average = sum / 10;
 
 	cout << "\n";
-	cout << "The sum is " << sum << " and the average is: " << average;
+	cout << "The sum is " << sum << " and the average is " << average;
+
+	maxIndex = 0;
+	for (index = 1; index < 10; index++)
+		if (sales[maxIndex] < sales[index])
+			maxIndex = index;
+	largestSale = sales[maxIndex];
+
+	cout << "The largest sale is " << largestSale << " and the max index is " << maxIndex;
 
 	_getch();
 	return 0;
